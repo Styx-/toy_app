@@ -1,0 +1,259 @@
+
+
+Started GET "/" for ::1 at 2016-03-18 19:07:34 -0400
+Processing by ApplicationController#hello as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 46ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (95.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (109.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateUsers (20160318231111)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160318231111"]]
+  [1m[35m (104.0ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for ::1 at 2016-03-18 19:14:07 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#hello as HTML
+  Rendered text template (0.0ms)
+Completed 200 OK in 23ms (Views: 10.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2016-03-18 19:15:02 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 2208ms (Views: 2203.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/scaffolds.self-9e118888fb0dc0ebe921713279361b62ef9f5861918003c9747acbc882075e8a.css?body=1" for ::1 at 2016-03-18 19:15:05 -0400
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-03-18 19:15:05 -0400
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-03-18 19:15:05 -0400
+
+
+Started GET "/users/new" for ::1 at 2016-03-18 19:15:14 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (93.9ms)
+  Rendered users/new.html.erb within layouts/application (123.2ms)
+Completed 200 OK in 149ms (Views: 142.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for ::1 at 2016-03-18 19:15:43 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hJvUaFWWRvo0ZhCCjXEkQNc8kYQr3VOrAzGGH0bhxQPROQdAw1vrm60X1D/lueEor5Jbce0uCOklko8EHSRFzA==", "user"=>{"name"=>"Morgan Martin", "email"=>"morganm5201@gmail.com"}, "commit"=>"Create User"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Morgan Martin"], ["email", "morganm5201@gmail.com"], ["created_at", "2016-03-18 23:15:43.336288"], ["updated_at", "2016-03-18 23:15:43.336288"]]
+  [1m[36m (95.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 106ms (ActiveRecord: 95.8ms)
+
+
+Started GET "/users/1" for ::1 at 2016-03-18 19:15:43 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 66ms (Views: 21.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1/edit" for ::1 at 2016-03-18 19:16:21 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/_form.html.erb (4.5ms)
+  Rendered users/edit.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 47ms (Views: 45.7ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/users/1" for ::1 at 2016-03-18 19:16:35 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o3KyUIsQIVH4q1nlTYJlu5tfF1u4aw4jhihATVK7ZyX20GF4Hd2MMGHanVglSqDT4/Hdrn6YVWGgi0lWCX7n6g==", "user"=>{"name"=>"Morgan Martin", "email"=>"morganm5201@gmail.com"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for ::1 at 2016-03-18 19:16:35 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered users/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 33ms (Views: 31.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/new" for ::1 at 2016-03-18 19:16:58 -0400
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (4.0ms)
+  Rendered users/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 46ms (Views: 44.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2016-03-18 19:17:05 -0400
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RHg2B7Y0NqIeLjVP5Sa+ohiv2IqWRRlPTnVe04xjevkR2uUvIPmbw4df8fKN7nvKYAESf1C2Qg1o1lfI16b6Ng==", "user"=>{"name"=>"Foo Bar", "email"=>"foo@bar.com"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Foo Bar"], ["email", "foo@bar.com"], ["created_at", "2016-03-18 23:17:05.400736"], ["updated_at", "2016-03-18 23:17:05.400736"]]
+  [1m[35m (87.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 94ms (ActiveRecord: 88.3ms)
+
+
+Started GET "/users/2" for ::1 at 2016-03-18 19:17:05 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered users/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 27ms (Views: 26.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for ::1 at 2016-03-18 19:17:11 -0400
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+  Rendered users/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/2" for ::1 at 2016-03-18 19:17:33 -0400
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SKnrr8RIMx26VVKZTHZcb2o6vqLYuBc4IEJjr0PXfxkdCziHUoWefCMkliQkvpkHEpR0Vx5LTHoG4Wq0GBL/1g==", "id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[35m (64.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/users
+Completed 302 Found in 71ms (ActiveRecord: 65.4ms)
+
+
+Started GET "/users" for ::1 at 2016-03-18 19:17:33 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateMicroposts (20160318232826)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160318232826"]]
+  [1m[36m (94.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/microposts" for ::1 at 2016-03-18 19:30:25 -0400
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by MicropostsController#index as HTML
+  [1m[36mMicropost Load (0.2ms)[0m  [1mSELECT "microposts".* FROM "microposts"[0m
+  Rendered microposts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 110ms (Views: 107.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/microposts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-03-18 19:30:25 -0400
+
+
+Started GET "/assets/microposts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-03-18 19:30:25 -0400
+
+
+Started GET "/microposts/new" for ::1 at 2016-03-18 19:30:27 -0400
+Processing by MicropostsController#new as HTML
+  Rendered microposts/_form.html.erb (26.0ms)
+  Rendered microposts/new.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 55ms (Views: 48.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/microposts" for ::1 at 2016-03-18 19:30:36 -0400
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"fw7WjEBlR10RpYlX07ILPABq4RfkK8AqLJP1xAOYnWIqrAWk1qjqPIjUTeq7es5UeMQr4iLYm2gKMPzfWF0drQ==", "micropost"=>{"content"=>"First micropost!", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "First micropost!"], ["user_id", 1], ["created_at", "2016-03-18 23:30:36.140875"], ["updated_at", "2016-03-18 23:30:36.140875"]]
+  [1m[35m (72.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/microposts/1
+Completed 302 Found in 78ms (ActiveRecord: 72.9ms)
+
+
+Started GET "/microposts/1" for ::1 at 2016-03-18 19:30:36 -0400
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMicropost Load (0.2ms)[0m  [1mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered microposts/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 20ms (Views: 18.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/microposts" for ::1 at 2016-03-18 19:30:38 -0400
+Processing by MicropostsController#index as HTML
+  [1m[35mMicropost Load (0.2ms)[0m  SELECT "microposts".* FROM "microposts"
+  Rendered microposts/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for ::1 at 2016-03-18 19:31:03 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered users/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 43ms (Views: 39.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/microposts/new" for ::1 at 2016-03-18 19:31:08 -0400
+Processing by MicropostsController#new as HTML
+  Rendered microposts/_form.html.erb (1.7ms)
+  Rendered microposts/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/microposts" for ::1 at 2016-03-18 19:31:14 -0400
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vIK4WlAvz2kFJGWk9/2vH7b5YwgfhpMZBkuor00aEy/pIGtyxuJiCJxVoRmfNWp3zlep/dl1yFsg6KG0Ft+T4A==", "micropost"=>{"content"=>"Another micropost!", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "microposts" ("content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Another micropost!"], ["user_id", 1], ["created_at", "2016-03-18 23:31:14.931647"], ["updated_at", "2016-03-18 23:31:14.931647"]]
+  [1m[35m (74.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/microposts/2
+Completed 302 Found in 77ms (ActiveRecord: 74.6ms)
+
+
+Started GET "/microposts/2" for ::1 at 2016-03-18 19:31:15 -0400
+Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mMicropost Load (0.1ms)[0m  [1mSELECT  "microposts".* FROM "microposts" WHERE "microposts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered microposts/show.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/microposts" for ::1 at 2016-03-18 19:31:27 -0400
+Processing by MicropostsController#index as HTML
+  [1m[35mMicropost Load (0.2ms)[0m  SELECT "microposts".* FROM "microposts"
+  Rendered microposts/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/microposts/new" for ::1 at 2016-03-18 19:32:29 -0400
+Processing by MicropostsController#new as HTML
+  Rendered microposts/_form.html.erb (3.0ms)
+  Rendered microposts/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 36ms (Views: 26.8ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/microposts" for ::1 at 2016-03-18 19:32:42 -0400
+Processing by MicropostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QB57EuwAByxMP1xUSuNgIN8SQDWi8Jofawmb3Gj0pwwVvKg6es2qTdVOmOkiK6VIp7yKwGQDwV1NqpLHMzEnww==", "micropost"=>{"content"=>"111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111", "user_id"=>"1"}, "commit"=>"Create Micropost"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered microposts/_form.html.erb (3.2ms)
+  Rendered microposts/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 28ms (Views: 22.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/microposts" for ::1 at 2016-03-18 19:32:53 -0400
+Processing by MicropostsController#index as HTML
+  [1m[36mMicropost Load (0.3ms)[0m  [1mSELECT "microposts".* FROM "microposts"[0m
+  Rendered microposts/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 27ms (Views: 26.2ms | ActiveRecord: 0.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35mMicropost Load (0.5ms)[0m  SELECT "microposts".* FROM "microposts" WHERE "microposts"."user_id" = ?  [["user_id", 1]]
